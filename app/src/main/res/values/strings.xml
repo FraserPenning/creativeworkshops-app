@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Creative Workshops</string>
+
+    <!--Strings for information page-->
+
+    <!--Titles-->
+    <string name="first_slide_title">Welcome</string>
+    <string name="second_slide_title">Overview</string>
+    <string name="third_slide_title">Enjoy</string>
+
+    <!--Descriptions-->
+    <string name="first_slide_desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</string>
+    <string name="second_slide_desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</string>
+    <string name="third_slide_desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</string>
+
+    <!--Navigation strings-->
+    <string name="navigation_draw_open">Open navigation drawer</string>
+    <string name="navigation_draw_close">Close navigation drawer</string>
+
+
+</resources>
