@@ -27,10 +27,11 @@ public class CategoriesActivity extends AppCompatActivity implements NavigationV
         //Navigation Drawer hooks
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.navigationView);
-        toolbar = findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolBar);
 
         //Toolbar set as action bar
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
         navigationView.bringToFront();
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_draw_open, R.string.navigation_draw_close);
         drawerLayout.addDrawerListener(toggle);
@@ -38,6 +39,8 @@ public class CategoriesActivity extends AppCompatActivity implements NavigationV
 
         //navigation clickable
         navigationView.setNavigationItemSelectedListener(this);
+        //Set home screen information on start
+        navigationView.setCheckedItem(R.id.nav_categories);
 
 
     }

@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 public class SplashActivity extends AppCompatActivity {
 
-    private static int SPLASH_SCREEN = 3500;
+    private static int SPLASH_SCREEN = 4000;
 
     //Variables
     Animation topAnim, bottomAnim;
@@ -46,6 +46,7 @@ public class SplashActivity extends AppCompatActivity {
                 Intent intent   = new Intent(SplashActivity.this, Information3.class);
                 startActivity(intent);
                 finish();
+                overridePendingTransition(0,R.anim.splash_fade);
             }
         },SPLASH_SCREEN);
 

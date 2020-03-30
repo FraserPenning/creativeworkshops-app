@@ -14,10 +14,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
 import androidx.viewpager.widget.ViewPager;
 import androidx.core.view.GravityCompat;
 
 import com.google.android.material.navigation.NavigationView;
+
+import java.util.Objects;
 
 public class Information3 extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -28,10 +31,10 @@ public class Information3 extends AppCompatActivity implements NavigationView.On
     private Button mNextBtn;
     private Button mBackBtn;
     private int mCurrentPage;
+
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
-    private Toolbar toolbar;
-
+    private Toolbar toolBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,12 +44,13 @@ public class Information3 extends AppCompatActivity implements NavigationView.On
         //Navigation Drawer hooks
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.navigationView);
-        toolbar = findViewById(R.id.toolbar);
+        toolBar = findViewById(R.id.toolBar);
 
         //Toolbar set as action bar
-        setSupportActionBar(toolbar);
+        setSupportActionBar(toolBar);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(false);
         navigationView.bringToFront();
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_draw_open, R.string.navigation_draw_close);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolBar, R.string.navigation_draw_open, R.string.navigation_draw_close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
@@ -56,12 +60,12 @@ public class Information3 extends AppCompatActivity implements NavigationView.On
         //Set home screen information on start
         navigationView.setCheckedItem(R.id.nav_information);
 
-        //Viewpager and buttons
-        mSlideViewPager = (ViewPager) findViewById(R.id.slideViewPager);
-        mDotLayout = (LinearLayout) findViewById(R.id.dotsLayout);
+        //Main Window Design: Viewpager and buttons
+        mSlideViewPager = findViewById(R.id.slideViewPager);
+        mDotLayout = findViewById(R.id.dotsLayout);
 
-        mNextBtn = (Button) findViewById(R.id.nextBtn);
-        mBackBtn = (Button) findViewById(R.id.backBtn);
+        mNextBtn = findViewById(R.id.nextBtn);
+        mBackBtn = findViewById(R.id.backBtn);
 
         sliderAdapter = new SliderAdapter(this);
         mSlideViewPager.setAdapter(sliderAdapter);
