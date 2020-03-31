@@ -96,6 +96,15 @@ public class ListsActivity extends AppCompatActivity implements NavigationView.O
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setAdapter(mAdapter);
 
+        //Set on click listener to items in RecyclerView
+        mAdapter.setOnItemClickListner(new ExampleAdapter.OnItemClickListner() {
+            @Override
+            public void onItemClick(int position) {
+                Intent intent = new Intent(ListsActivity.this, WorkshopItem.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     private void filter(String text) {
