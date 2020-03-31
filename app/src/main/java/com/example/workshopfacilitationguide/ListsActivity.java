@@ -2,7 +2,11 @@ package com.example.workshopfacilitationguide;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.MenuItem;
+import android.widget.AdapterView;
+import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -18,7 +22,7 @@ import java.util.Objects;
 
 public class ListsActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private RecyclerView mRecyclerView;
-    private RecyclerView.Adapter mAdapter;
+    private ExampleAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private ArrayList<ExampleItem> mExampleList;
     private Toolbar toolBar;
@@ -42,34 +46,67 @@ public class ListsActivity extends AppCompatActivity implements NavigationView.O
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolBar, R.string.navigation_draw_open, R.string.navigation_draw_close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
-
         //navigation clickable
         navigationView.setNavigationItemSelectedListener(this);
         //Set home screen information on start
         navigationView.setCheckedItem(R.id.nav_lists);
-        //Array lists for recycle view
-        ArrayList<ExampleItem> exampleList = new ArrayList<>();
-        exampleList.add(new ExampleItem(R.drawable.create_logo, "Line 1", "Details"));
-        exampleList.add(new ExampleItem(R.drawable.create_logo, "Line 2", "Details"));
-        exampleList.add(new ExampleItem(R.drawable.create_logo, "Line 3", "Details"));
-        exampleList.add(new ExampleItem(R.drawable.create_logo, "Line 4", "Details"));
-        exampleList.add(new ExampleItem(R.drawable.create_logo, "Line 5", "Details"));
-        exampleList.add(new ExampleItem(R.drawable.create_logo, "Line 6", "Details"));
-        exampleList.add(new ExampleItem(R.drawable.create_logo, "Line 7", "Details"));
-        exampleList.add(new ExampleItem(R.drawable.create_logo, "Line 8", "Details"));
-        exampleList.add(new ExampleItem(R.drawable.create_logo, "Line 9", "Details"));
-        exampleList.add(new ExampleItem(R.drawable.create_logo, "Line 10", "Details"));
-        exampleList.add(new ExampleItem(R.drawable.create_logo, "Line 11", "Details"));
-        exampleList.add(new ExampleItem(R.drawable.create_logo, "Line 12", "Details"));
+
+        //EditText
+        EditText editText = findViewById(R.id.edittext);
+        editText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                filter(s.toString());
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+        //Array lists for recycle view deleted ArrayList<ExampleItem>
+        mExampleList = new ArrayList<>();
+        mExampleList.add(new ExampleItem(R.drawable.create_logo, "1-2-4-All", "Generate question and ideas with many people","5 - 10 minutes"));
+        mExampleList.add(new ExampleItem(R.drawable.create_logo, "5 Whys", "Get to the root cause of a problem",""));
+        mExampleList.add(new ExampleItem(R.drawable.create_logo, "Affinity Sizing", "Prioritise and relatively size ideas","5 - 10 minutes"));
+        mExampleList.add(new ExampleItem(R.drawable.create_logo, "Dot Voting", "Simple voting system to reduce scope","5 - 10 minutes"));
+        mExampleList.add(new ExampleItem(R.drawable.create_logo, "Feedback Techniques", "Give and receive meaningful feedback","5 - 10 minutes"));
+        mExampleList.add(new ExampleItem(R.drawable.create_logo, "Importance Urgency Matrix", "Sort ideas rapidly to make priority decisions","5 - 10 minutes"));
+        mExampleList.add(new ExampleItem(R.drawable.create_logo, "Intercept Interviews", "Interview non-recruited customers in a concise and empathetic way","5 - 10 minutes"));
+        mExampleList.add(new ExampleItem(R.drawable.create_logo, "Lean Coffee", "Hold an agenda-less open conversation","5 - 10 minutes"));
+        mExampleList.add(new ExampleItem(R.drawable.create_logo, "Planning Poker", "Gain a shared understanding over the complexity of an idea","5 - 10 minutes"));
+        mExampleList.add(new ExampleItem(R.drawable.create_logo, "Room Setup", "Create a collaborative environment","5 - 10 minutes"));
+        mExampleList.add(new ExampleItem(R.drawable.create_logo, "Silent Mindmap", "Generate relational ideas on an even playing field","5 - 10 minutes"));
+        mExampleList.add(new ExampleItem(R.drawable.create_logo, "Vision Board", "Visualise your vision","5 - 10 minutes"));
 
         //Main Window Design Recycle View
         mRecyclerView = findViewById(R.id.recyclerView);
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(this);
-        mAdapter = new ExampleAdapter(exampleList);
+        //made exampleList mExampleList
+        mAdapter = new ExampleAdapter(mExampleList);
 
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setAdapter(mAdapter);
+
+    }
+
+    private void filter(String text) {
+        ArrayList<ExampleItem> filteredList = new ArrayList<>();
+
+        for (ExampleItem item : mExampleList) {
+            if (item.getText1().toLowerCase().contains(text.toLowerCase())) {
+                filteredList.add(item);
+            }
+        }
+        mAdapter.filterList(filteredList);
     }
 
     @Override
@@ -99,4 +136,5 @@ public class ListsActivity extends AppCompatActivity implements NavigationView.O
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
+
 }

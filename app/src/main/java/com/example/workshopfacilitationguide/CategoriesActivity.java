@@ -13,6 +13,8 @@ import android.view.MenuItem;
 import com.google.android.material.navigation.NavigationView;
 import androidx.core.view.GravityCompat;
 
+import java.util.Objects;
+
 public class CategoriesActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private Toolbar toolbar;
@@ -31,7 +33,7 @@ public class CategoriesActivity extends AppCompatActivity implements NavigationV
 
         //Toolbar set as action bar
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(false);
         navigationView.bringToFront();
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_draw_open, R.string.navigation_draw_close);
         drawerLayout.addDrawerListener(toggle);

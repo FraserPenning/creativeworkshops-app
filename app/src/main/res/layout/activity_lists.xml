@@ -30,17 +30,18 @@
             android:layout_height="wrap_content" />
 
         <EditText
-            android:id="@+id/editTextSearch"
+            android:id="@+id/edittext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Search"
-            android:inputType="textShortMessage" />
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:drawableLeft="@drawable/ic_search"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#3C3F41"
+            android:background="#053C3F41"
             android:padding="4dp"
             android:scrollbars="vertical">
 

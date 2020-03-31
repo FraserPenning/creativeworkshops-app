@@ -5,7 +5,6 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -14,12 +13,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import androidx.viewpager.widget.ViewPager;
 import androidx.core.view.GravityCompat;
-
 import com.google.android.material.navigation.NavigationView;
-
 import java.util.Objects;
 
 public class Information3 extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -31,7 +27,6 @@ public class Information3 extends AppCompatActivity implements NavigationView.On
     private Button mNextBtn;
     private Button mBackBtn;
     private int mCurrentPage;
-
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
     private Toolbar toolBar;
