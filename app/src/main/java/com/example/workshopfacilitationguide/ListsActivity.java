@@ -148,7 +148,7 @@ public class ListsActivity extends AppCompatActivity implements NavigationView.O
     Intent mIntent;
         switch (position) {
             case 0: //first item in recyclerView
-                mIntent = new Intent(this, WorkshopItem.class);
+                mIntent = new Intent(this, Workshop.class);
                 startActivity(mIntent);
                 break;
             case 1: //first item in recyclerView
@@ -156,46 +156,20 @@ public class ListsActivity extends AppCompatActivity implements NavigationView.O
                 startActivity(mIntent);
                 break;
             case 2: //first item in recyclerView
-                mIntent = new Intent(this, WorkshopItem1.class);
+                mIntent = new Intent(this, WorkshopItem2.class);
                 startActivity(mIntent);
                 break;
             case 3: //first item in recyclerView
-                mIntent = new Intent(this, WorkshopItem1.class);
+                mIntent = new Intent(this, WorkshopItem3.class);
                 startActivity(mIntent);
                 break;
             case 4: //first item in recyclerView
-                mIntent = new Intent(this, WorkshopItem1.class);
+                mIntent = new Intent(this, WorkshopItem4.class);
                 startActivity(mIntent);
                 break;
             case 5: //first item in recyclerView
-                mIntent = new Intent(this, WorkshopItem1.class);
+                mIntent = new Intent(this, WorkshopItem5.class);
                 startActivity(mIntent);
-                break;
-            case 6: //first item in recyclerView
-                mIntent = new Intent(this, WorkshopItem1.class);
-                startActivity(mIntent);
-                break;
-            case 7: //first item in recyclerView
-                mIntent = new Intent(this, WorkshopItem1.class);
-                startActivity(mIntent);
-                break;
-            case 8: //first item in recyclerView
-                mIntent = new Intent(this, WorkshopItem1.class);
-                startActivity(mIntent);
-                break;
-            case 9: //first item in recyclerView
-                mIntent = new Intent(this, WorkshopItem1.class);
-                startActivity(mIntent);
-                break;
-            case 10: //first item in recyclerView
-                mIntent = new Intent(this, WorkshopItem1.class);
-                startActivity(mIntent);
-                break;
-
-
         }
-
-
-
     }
 }

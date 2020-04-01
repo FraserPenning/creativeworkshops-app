@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.workshopfacilitationguide" >
+    package="com.example.workshopfacilitationguide">
 
     <application
         android:allowBackup="true"
@@ -8,17 +8,20 @@
         android:label="Creative Workshops"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".Workshop"
+            android:label="@string/title_activity_workshop"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".WorkshopItem5" />
         <activity android:name=".WorkshopItem4" />
         <activity android:name=".WorkshopItem3" />
         <activity android:name=".WorkshopItem2" />
         <activity android:name=".WorkshopItem1" />
-        <activity android:name=".WorkshopItem" />
         <activity android:name=".ListsActivity" />
         <activity android:name=".CategoriesActivity" />
         <activity android:name=".Information3" />
-        <activity android:name=".SplashActivity" >
+        <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
