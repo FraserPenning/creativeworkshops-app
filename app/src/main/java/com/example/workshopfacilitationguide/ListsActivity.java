@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.MenuItem;
-import android.widget.AdapterView;
 import android.widget.EditText;
 
 import androidx.annotation.NonNull;
@@ -20,7 +19,7 @@ import com.google.android.material.navigation.NavigationView;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class ListsActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class ListsActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, ExampleAdapter.OnItemListener {
     private RecyclerView mRecyclerView;
     private ExampleAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
@@ -35,21 +34,11 @@ public class ListsActivity extends AppCompatActivity implements NavigationView.O
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lists);
 
-        //Navigation Drawer hooks
-        drawerLayout = findViewById(R.id.drawer_layout);
-        navigationView = findViewById(R.id.navigationView);
-        toolBar = findViewById(R.id.toolBar);
-        //Toolbar set as action bar
-        setSupportActionBar(toolBar);
-        Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(false);
-        navigationView.bringToFront();
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolBar, R.string.navigation_draw_open, R.string.navigation_draw_close);
-        drawerLayout.addDrawerListener(toggle);
-        toggle.syncState();
-        //navigation clickable
-        navigationView.setNavigationItemSelectedListener(this);
-        //Set home screen information on start
-        navigationView.setCheckedItem(R.id.nav_lists);
+        createExampleList();
+        buildRecyclerView();
+        buildNavigationToolbar();
+
+
 
         //EditText
         EditText editText = findViewById(R.id.edittext);
@@ -71,45 +60,54 @@ public class ListsActivity extends AppCompatActivity implements NavigationView.O
             }
         });
 
+    }
+    public void createExampleList() {
         //Array lists for recycle view deleted ArrayList<ExampleItem>
         mExampleList = new ArrayList<>();
-        mExampleList.add(new ExampleItem(R.drawable.create_logo, "1-2-4-All", "Generate question and ideas with many people","5 - 10 minutes"));
-        mExampleList.add(new ExampleItem(R.drawable.create_logo, "5 Whys", "Get to the root cause of a problem",""));
-        mExampleList.add(new ExampleItem(R.drawable.create_logo, "Affinity Sizing", "Prioritise and relatively size ideas","5 - 10 minutes"));
-        mExampleList.add(new ExampleItem(R.drawable.create_logo, "Dot Voting", "Simple voting system to reduce scope","5 - 10 minutes"));
-        mExampleList.add(new ExampleItem(R.drawable.create_logo, "Feedback Techniques", "Give and receive meaningful feedback","5 - 10 minutes"));
-        mExampleList.add(new ExampleItem(R.drawable.create_logo, "Importance Urgency Matrix", "Sort ideas rapidly to make priority decisions","5 - 10 minutes"));
-        mExampleList.add(new ExampleItem(R.drawable.create_logo, "Intercept Interviews", "Interview non-recruited customers in a concise and empathetic way","5 - 10 minutes"));
-        mExampleList.add(new ExampleItem(R.drawable.create_logo, "Lean Coffee", "Hold an agenda-less open conversation","5 - 10 minutes"));
-        mExampleList.add(new ExampleItem(R.drawable.create_logo, "Planning Poker", "Gain a shared understanding over the complexity of an idea","5 - 10 minutes"));
-        mExampleList.add(new ExampleItem(R.drawable.create_logo, "Room Setup", "Create a collaborative environment","5 - 10 minutes"));
-        mExampleList.add(new ExampleItem(R.drawable.create_logo, "Silent Mindmap", "Generate relational ideas on an even playing field","5 - 10 minutes"));
-        mExampleList.add(new ExampleItem(R.drawable.create_logo, "Vision Board", "Visualise your vision","5 - 10 minutes"));
+        mExampleList.add(new ExampleItem(R.drawable.create_logo, "1-2-4-All", "Generate question and ideas with many people", "5 - 10 minutes"));
+        mExampleList.add(new ExampleItem(R.drawable.create_logo, "5 Whys", "Get to the root cause of a problem", ""));
+        mExampleList.add(new ExampleItem(R.drawable.create_logo, "Affinity Sizing", "Prioritise and relatively size ideas", "5 - 10 minutes"));
+        mExampleList.add(new ExampleItem(R.drawable.create_logo, "Dot Voting", "Simple voting system to reduce scope", "5 - 10 minutes"));
+        mExampleList.add(new ExampleItem(R.drawable.create_logo, "Feedback Techniques", "Give and receive meaningful feedback", "5 - 10 minutes"));
+        mExampleList.add(new ExampleItem(R.drawable.create_logo, "Importance Urgency Matrix", "Sort ideas rapidly to make priority decisions", "5 - 10 minutes"));
+        mExampleList.add(new ExampleItem(R.drawable.create_logo, "Intercept Interviews", "Interview non-recruited customers in a concise and empathetic way", "5 - 10 minutes"));
+        mExampleList.add(new ExampleItem(R.drawable.create_logo, "Lean Coffee", "Hold an agenda-less open conversation", "5 - 10 minutes"));
+        mExampleList.add(new ExampleItem(R.drawable.create_logo, "Planning Poker", "Gain a shared understanding over the complexity of an idea", "5 - 10 minutes"));
+        mExampleList.add(new ExampleItem(R.drawable.create_logo, "Room Setup", "Create a collaborative environment", "5 - 10 minutes"));
+        mExampleList.add(new ExampleItem(R.drawable.create_logo, "Silent Mindmap", "Generate relational ideas on an even playing field", "5 - 10 minutes"));
+        mExampleList.add(new ExampleItem(R.drawable.create_logo, "Vision Board", "Visualise your vision", "5 - 10 minutes"));
+    }
 
-        //Main Window Design Recycle View
+    public void buildNavigationToolbar() {
+        drawerLayout = findViewById(R.id.drawer_layout);
+        navigationView = findViewById(R.id.navigationView);
+        toolBar = findViewById(R.id.toolBar);
+        //Toolbar set as action bar
+        setSupportActionBar(toolBar);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(false);
+        navigationView.bringToFront();
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolBar, R.string.navigation_draw_open, R.string.navigation_draw_close);
+        drawerLayout.addDrawerListener(toggle);
+        toggle.syncState();
+        //navigation clickable
+        navigationView.setNavigationItemSelectedListener(this);
+        //Set home screen information on start
+        navigationView.setCheckedItem(R.id.nav_lists);
+    }
+
+    public void buildRecyclerView() {
         mRecyclerView = findViewById(R.id.recyclerView);
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(this);
-        //made exampleList mExampleList
-        mAdapter = new ExampleAdapter(mExampleList);
 
+        //keep an eye on this below "this"
+        mAdapter = new ExampleAdapter(mExampleList, (ExampleAdapter.OnItemListener) this);
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setAdapter(mAdapter);
-
-        //Set on click listener to items in RecyclerView
-        mAdapter.setOnItemClickListner(new ExampleAdapter.OnItemClickListner() {
-            @Override
-            public void onItemClick(int position) {
-                Intent intent = new Intent(ListsActivity.this, WorkshopItem.class);
-                startActivity(intent);
-            }
-        });
-
     }
 
     private void filter(String text) {
         ArrayList<ExampleItem> filteredList = new ArrayList<>();
-
         for (ExampleItem item : mExampleList) {
             if (item.getText1().toLowerCase().contains(text.toLowerCase())) {
                 filteredList.add(item);
@@ -129,7 +127,6 @@ public class ListsActivity extends AppCompatActivity implements NavigationView.O
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-
         switch (menuItem.getItemId()) {
             case R.id.nav_lists:
                 break;
@@ -146,4 +143,59 @@ public class ListsActivity extends AppCompatActivity implements NavigationView.O
         return true;
     }
 
+    @Override
+    public void onItemClick(int position) {
+    Intent mIntent;
+        switch (position) {
+            case 0: //first item in recyclerView
+                mIntent = new Intent(this, WorkshopItem.class);
+                startActivity(mIntent);
+                break;
+            case 1: //first item in recyclerView
+                mIntent = new Intent(this, WorkshopItem1.class);
+                startActivity(mIntent);
+                break;
+            case 2: //first item in recyclerView
+                mIntent = new Intent(this, WorkshopItem1.class);
+                startActivity(mIntent);
+                break;
+            case 3: //first item in recyclerView
+                mIntent = new Intent(this, WorkshopItem1.class);
+                startActivity(mIntent);
+                break;
+            case 4: //first item in recyclerView
+                mIntent = new Intent(this, WorkshopItem1.class);
+                startActivity(mIntent);
+                break;
+            case 5: //first item in recyclerView
+                mIntent = new Intent(this, WorkshopItem1.class);
+                startActivity(mIntent);
+                break;
+            case 6: //first item in recyclerView
+                mIntent = new Intent(this, WorkshopItem1.class);
+                startActivity(mIntent);
+                break;
+            case 7: //first item in recyclerView
+                mIntent = new Intent(this, WorkshopItem1.class);
+                startActivity(mIntent);
+                break;
+            case 8: //first item in recyclerView
+                mIntent = new Intent(this, WorkshopItem1.class);
+                startActivity(mIntent);
+                break;
+            case 9: //first item in recyclerView
+                mIntent = new Intent(this, WorkshopItem1.class);
+                startActivity(mIntent);
+                break;
+            case 10: //first item in recyclerView
+                mIntent = new Intent(this, WorkshopItem1.class);
+                startActivity(mIntent);
+                break;
+
+
+        }
+
+
+
+    }
 }

@@ -5,24 +5,19 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.res.ResourcesCompat;
-import androidx.viewpager.widget.ViewPager;
 
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
-public class WorkshopItem extends AppCompatActivity {
+public class WorkshopItem1 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_workshop_item);
+        setContentView(R.layout.activity_workshop_item1);
 
-
-        Toolbar toolbar = findViewById(R.id.backToolBar);
+        Toolbar toolbar= findViewById(R.id.backToolBar);
         setSupportActionBar(toolbar);
 
         Drawable drawable= ResourcesCompat.getDrawable(this.getResources(), R.drawable.ic_arrow, null);
@@ -32,7 +27,6 @@ public class WorkshopItem extends AppCompatActivity {
         actionBar.setHomeButtonEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setHomeAsUpIndicator(drawable);
-
 
 
     }
