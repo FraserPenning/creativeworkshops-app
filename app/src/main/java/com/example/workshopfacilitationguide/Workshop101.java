@@ -10,14 +10,14 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.MenuItem;
 
-public class WorkshopItem1 extends AppCompatActivity {
+public class Workshop101 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_workshop_item1);
+        setContentView(R.layout.activity_workshop101);
 
-        Toolbar toolbar= findViewById(R.id.backToolBar);
+        Toolbar toolbar = findViewById(R.id.backToolBar);
         setSupportActionBar(toolbar);
 
         Drawable drawable= ResourcesCompat.getDrawable(this.getResources(), R.drawable.ic_arrow, null);
@@ -27,10 +27,8 @@ public class WorkshopItem1 extends AppCompatActivity {
         actionBar.setHomeButtonEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setHomeAsUpIndicator(drawable);
-
-
+        actionBar.setTitle("Workshop 101");
     }
-
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();

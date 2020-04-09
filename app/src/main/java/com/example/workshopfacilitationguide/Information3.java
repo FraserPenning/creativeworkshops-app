@@ -43,7 +43,8 @@ public class Information3 extends AppCompatActivity implements NavigationView.On
 
         //Toolbar set as action bar
         setSupportActionBar(toolBar);
-        Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(false);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(true);
+        getSupportActionBar().setTitle("Introduction");
         navigationView.bringToFront();
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolBar, R.string.navigation_draw_open, R.string.navigation_draw_close);
         drawerLayout.addDrawerListener(toggle);
@@ -166,6 +167,11 @@ public class Information3 extends AppCompatActivity implements NavigationView.On
 
             case R.id.nav_lists:
                 intent = new Intent(Information3.this, ListsActivity.class);
+                startActivity(intent);
+                break;
+
+            case R.id.nav_settings:
+                intent = new Intent(Information3.this, Settings.class);
                 startActivity(intent);
                 break;
         }

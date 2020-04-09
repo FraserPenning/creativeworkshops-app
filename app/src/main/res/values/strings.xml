@@ -4,14 +4,14 @@
     <!--Strings for information page-->
 
     <!--Titles-->
-    <string name="first_slide_title">Welcome</string>
+    <string name="first_slide_title">Welcome to the Creative Workshops App!</string>
     <string name="second_slide_title">Overview</string>
-    <string name="third_slide_title">Enjoy</string>
+    <string name="third_slide_title">Enjoy!</string>
 
     <!--Descriptions-->
-    <string name="first_slide_desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</string>
-    <string name="second_slide_desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</string>
-    <string name="third_slide_desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</string>
+    <string name="first_slide_desc">This app is designed to help you make the most of your workshops (and meetings). Think of it as a tool-kit full of different techniques and processes that you can use to run amazing events that deliver value.</string>
+    <string name="second_slide_desc"> Explore complementary techniques in WORKSHOP THEMES. Mix and match differences processes in TECHNIQUES.</string>
+    <string name="third_slide_desc">Thank you for taking the time to explore this app. I hope you are inspired to craft amazing and creative workshops! </string>
 
     <!--Navigation strings-->
     <string name="navigation_draw_open">Open navigation drawer</string>
@@ -22,27 +22,43 @@
     <string name="messages_header">Messages</string>
     <string name="sync_header">Sync</string>
 
-    <!-- Messages Preferences -->
-    <string name="signature_title">Your signature</string>
-    <string name="reply_title">Default reply action</string>
-
     <!-- Sync Preferences -->
-    <string name="sync_title">Sync email periodically</string>
-    <string name="attachment_title">Download incoming attachments</string>
-    <string name="attachment_summary_on">Automatically download attachments for incoming emails
-    </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
     <string name="title_activity_tabbed">Tabbed</string>
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
     <string name="title_activity_workshop">Workshop</string>
     <string name="tab_text_1">Purpose</string>
     <string name="tab_text_2">Method</string>
-    <string name="tab_text_3">Examples</string>
+    <string name="tab_text_3">Use Cases</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!--Fragment Titles-->
+    <string name="purpose_frag1">Why?</string>
+    <string name="purpose_frag2">How?</string>
+    <string name="purpose_frag3">Where to use it</string>
+
+    <!--Fragment Explained-->
+    <string name="fivewhys_purpose">5 Whys is an iterative technique that is used to explore cause and effect relationships and uncover root causes of problems. </string>
+    <string name="fivewhys_method">Lorem ipsum dolor sit amet, consectetur adipiscing elit. \n\n\n\u2022 sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. \n\u2022 Lorem ipsum dolor sit amet, consectetur adipiscing elit.</string>
+    <string name="fivewhys_usecases">5 Whys is best used for relatively simple root-cause issues and is a great place to start exploring cause and effect relationships. For more complex root cause issues try using the Root Cause Analaysis technique.</string>
+
+    <!--Affinity Sizing Explained-->
+    <string name="Affinity_purpose">Affinity </string>
+    <string name="Affinity_method">Affinity</string>
+    <string name="Affinity_usecases">Affinity</string>
+
+    <!--Workshop Themes Titles and descriptions-->
+    <string name="Tile_1">Workshop 101</string>
+    <string name="Tile_1a">Learn best practice for workshop facilitation</string>
+    <string name="Tile_2">Agile</string>
+    <string name="Tile_2a">Agile Workshop Techniques, end to end</string>
+    <string name="Tile_3">Innovation and Design</string>
+    <string name="Tile_3a">TBC</string>
+    <string name="Tile_4">Unconferences</string>
+    <string name="Tile_4a">TBC</string>
+    <string name="Tile_5">TBC</string>
+    <string name="Tile_5a">TBC</string>
+    <string name="Tile_6">TBC</string>
+    <string name="Tile_6a">TBC</string>
 
 
 </resources>

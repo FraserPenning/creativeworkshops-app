@@ -38,6 +38,7 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleV
 
         @Override
         public void onClick(View v) {
+
             onItemListener.onItemClick(getAdapterPosition());
 
         }

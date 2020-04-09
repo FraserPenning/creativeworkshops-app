@@ -1,27 +1,27 @@
 package com.example.workshopfacilitationguide;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.res.ResourcesCompat;
+import androidx.viewpager.widget.ViewPager;
+
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-import com.google.android.material.tabs.TabLayout;
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.widget.Toolbar;
-import androidx.core.content.res.ResourcesCompat;
-import androidx.viewpager.widget.ViewPager;
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.workshopfacilitationguide.ui.main.SectionsPagerAdapter;
+import com.google.android.material.tabs.TabLayout;
 
-public class Workshop extends AppCompatActivity {
+public class Workshop1 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_workshop);
+        setContentView(R.layout.activity_workshop1);
         SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
         ViewPager viewPager = findViewById(R.id.view_pager);
         viewPager.setAdapter(sectionsPagerAdapter);
@@ -36,14 +36,11 @@ public class Workshop extends AppCompatActivity {
 //        int imageRes = exampleItem.getImageResource();
         String Text1 = exampleItem.getText1();
 //        String Text2 = exampleItem.getText2();
-        String Text3 = exampleItem.getText3();
+//        String Text3 = exampleItem.getText3();
 
 //        ImageView imageView = findViewById(R.id.imageView);
-        TextView workshoptitle = findViewById(R.id.workshoptitle);
-        workshoptitle.setText(Text1);
-        TextView timing = findViewById(R.id.timing);
-        timing.setText(Text3);
-
+        TextView textView = findViewById(R.id.workshoptitle);
+        textView.setText(Text1);
 
         Drawable drawable= ResourcesCompat.getDrawable(this.getResources(), R.drawable.ic_arrow, null);
 

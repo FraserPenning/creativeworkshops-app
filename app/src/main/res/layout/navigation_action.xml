@@ -3,8 +3,8 @@
     android:id="@+id/toolBar"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
+    android:background="@color/colorPrimary"
     android:fitsSystemWindows="true"
-    android:minHeight="?attr/actionBarSize">
-</androidx.appcompat.widget.Toolbar>
+    android:minHeight="?attr/actionBarSize"
+    android:orientation="vertical"/>
 
